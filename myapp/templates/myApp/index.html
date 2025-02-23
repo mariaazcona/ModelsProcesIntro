@@ -1,0 +1,27 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>Welcome to Shopping List</h1>
+        <p>Thank you for visiting our store!</p>
+    </header>
+
+    <div class="button-container">
+        <a href="{% url 'list_products' %}" class="btn">See Products List</a>
+        <a href="{% url 'purchase_history' %}" class="btn">See Purchases History</a>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div>
+        <p class="alert alert-success text-center mt-5">
+            You are logged in as: <strong>{{ user.username }}</strong>
+        </p>
+    </div>
+    {% else %}
+    <div>
+        <p class="alert alert-danger text-center mt-5">You are not logged in</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

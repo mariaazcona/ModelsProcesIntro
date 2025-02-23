@@ -1,0 +1,23 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>List of Purchases</h1>
+    </header>
+
+    <ul class="list-group mt-5">
+        {% for purchase in purchases %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <strong>{{ purchase.item.name }}</strong> Bought on {{ purchase.date }}
+            <form method="post" action="{% url 'delete_purchase' purchase.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-delete">Delete</button>
+            </form>
+        </li>
+        {% empty %}
+        <li class="list-group-item list-group-item-warning text-muted text-center">You haven't bought anything yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
