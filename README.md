@@ -1,4 +1,5 @@
 # Shopping List
+Authors: Maria Azcona Garcia
 
 ## Requirements
 
@@ -50,6 +51,7 @@ python manage.py createsuperuser
 ```
 
 ### 6. Add example data
+This project uses example product models sourced from the JSON file products.json. The dataset is extracted from the supermarket-web-example repository, originally available at: supermarket-web-example/products.json. To import these models:
 
 ```bash
 python manage.py import_products
